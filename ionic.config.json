@@ -1,0 +1,7 @@
+{
+  "name": "ui-design",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
