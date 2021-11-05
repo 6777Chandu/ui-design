@@ -1,40 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AppConstants } from 'src/constants/app.constants';
-
+import { ApiService } from '../services/api/api.service';
+import { CustomerRideModel } from '../models/customer-ride.model';
 
 @Component({
   selector: 'app-ui-page',
   templateUrl: './ui-page.page.html',
   styleUrls: ['./ui-page.page.scss'],
 })
-export class UiPagePage implements OnInit {
+export class UiPagePage implements OnInit, OnDestroy {
   logoTitle: string = AppConstants.CONSTANTS.PAGES.UI_PAGE.LOGO_TITLE;
-  pendingRidesTitle: string = AppConstants.CONSTANTS.PAGES.UI_PAGE.PENDING_RIDES;
-  data: any = [
-    {
-      pickUp: 10,
-      dropOff: 22,
-      type: 1,
-      price: 17.85,
-      riders: 2,
-      name: 'Ryan',
-      imgURL: 'https://randomuser.me/api/portraits/thumb/men/20.jpg',
-      instructions: 'Please use the entrance on the right side of the house',
-    },
+  pendingRidesTitle: string =
+    AppConstants.CONSTANTS.PAGES.UI_PAGE.PENDING_RIDES;
+  data: CustomerRideModel[] = [];
 
-    {
-      pickUp: 15,
-      dropOff: 30,
-      type: 2,
-      price: 19.85,
-      riders: 1,
-      name: 'Max',
-      imgURL: 'https://randomuser.me/api/portraits/thumb/women/43.jpg',
-      instructions: 'Please use the entrance on the right side of the house',
-    },
-  ];
+  apiServiceSubscription: Subscription;
 
-  constructor() {}
+  constructor(private apiService: ApiService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.apiServiceSubscription = this.apiService
+      .getData('https://run.mocky.io/v3/2d518b1e-4fb7-4109-8bf6-790896c35ef4')
+      .subscribe((data) => (this.data = data));
+  }
+
+  ngOnDestroy() {
+    this.apiServiceSubscription.unsubscribe();
+  }
 }
