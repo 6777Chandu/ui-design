@@ -1,0 +1,36 @@
+ion-content {
+  --background: var(--ui-page-bg-color);
+}
+
+ion-header {
+  background-color: var(--ui-page-header-bg);
+  ion-toolbar {
+    --opacity: 0;
+    ion-toggle {
+      width: 50px;
+      height: 8px;
+      --handle-max-height: 50px;
+    }
+  }
+}
+.wrapper {
+  // position: fixed;
+  height: calc(100vh - 5.6rem);
+  // height: 100%;
+  margin: 1rem;
+  background-color: #fff;
+  border-radius: 30px;
+  .pending-rides {
+    p {
+      font: {
+        size: 1.25rem;
+        weight: 600;
+      }
+    }
+
+    .rides-info {
+      text-align: right;
+    }
+    padding: 0 1em;
+  }
+}

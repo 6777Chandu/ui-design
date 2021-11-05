@@ -1,0 +1,41 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>ui-page</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-toggle slot="start" mode="md" color="success" checked></ion-toggle>
+    </ion-buttons>
+
+    <ion-title mode="ios">{{ logoTitle }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- START: WRAPPER -->
+  <div class="wrapper">
+    <ion-grid class="pending-rides">
+      <ion-row>
+        <ion-col>
+          <p>{{ pendingRidesTitle }}</p>
+        </ion-col>
+        <ion-col class="rides-info"
+          ><p>{{ data.length }} {{ data.length > 1 ? "riders" : "rider" }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div *ngFor="let item of data; let idx=index">
+      <app-customer-ride [item]="item" [idx]="idx"></app-customer-ride>
+    </div>
+  </div>
+  <!-- END: WRAPPER -->
+</ion-content>

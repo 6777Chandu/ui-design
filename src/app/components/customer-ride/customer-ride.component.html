@@ -1,0 +1,70 @@
+<!-- START: CUSTOMER INFO -->
+<div class="customer-info">
+  <ion-grid>
+    <div class="customer-ride-info">
+      <ion-row>
+        <ion-col size-md="4">
+          <ion-icon name="time-outline"></ion-icon>
+          <div>
+            <span>{{ item.pickUp }}</span>
+            <span>{{ pickUpMins }}</span>
+            <p>{{ pickUpTitle }}</p>
+          </div>
+        </ion-col>
+        <ion-col size-md="4" class="customer-img-details">
+          <div class="ion-text-center">
+            <img [src]="item.imgURL" alt="Ryan" />
+            <p>{{ item.name }}</p>
+          </div>
+        </ion-col>
+        <ion-col size-md="4">
+          <ion-icon name="time-outline"></ion-icon>
+          <div>
+            <span>{{ item.dropOff }}</span>
+            <span>{{ dropOffMins }}</span>
+            <p>{{ dropOffTitle }}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="customer-category">
+        <ion-col>
+          <ion-icon name="car-outline"></ion-icon>
+          <p>Type {{ item.type }}</p>
+        </ion-col>
+        <ion-col class="customer-ride-price">
+          <div class="ion-text-center">
+            <sup>{{ currencySymbol }}</sup
+            ><span>{{ item.price }}</span>
+          </div></ion-col
+        >
+        <ion-col>
+          <ion-icon name="people-circle-outline"></ion-icon>
+          <p>
+            {{ item.riders }} {{ item.riders === 1 ? "Rider" : "Riders" }}
+          </p></ion-col
+        >
+      </ion-row>
+    </div>
+    <div class="customer-rider-other-info">
+      <ion-row class="customer-ride-instructions">
+        <ion-col size="8">
+          <span>{{ riderInstrctionsTitle }}</span>
+          <p>{{ item.instructions }}</p>
+        </ion-col>
+        <ion-col size="4" class="customer-ride-call">
+          <ion-button shape="round" fill="outline">
+            <ion-icon name="call" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-button
+        class="accept-ride-btn"
+        expand="block"
+        size="large"
+        color="success"
+        >{{ acceptRideBtnTitle }}</ion-button
+      >
+    </div>
+  </ion-grid>
+</div>
+<!-- END: CUSTOMER INFO -->

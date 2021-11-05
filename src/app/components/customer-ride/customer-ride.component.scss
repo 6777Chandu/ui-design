@@ -1,0 +1,150 @@
+.customer-info {
+  padding: 1.5em 1em;
+
+  p,
+  span {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+  }
+
+  .hide {
+    display: none;
+  }
+  .borders {
+    border-radius: 0.5em;
+  }
+
+  .customer-ride-info {
+    background-color: var(--customer-ride-info-bg);
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    padding: 1em;
+    ion-col {
+      span:nth-child(1) {
+        font: {
+          size: 1rem;
+          weight: 500;
+        }
+      }
+
+      span:nth-child(2) {
+        font: {
+          size: 0.65rem;
+          weight: 300;
+        }
+        margin-left: 0.25rem;
+      }
+      p {
+        margin-top: -0.25rem;
+        font: {
+          size: 0.75rem;
+          weight: 500;
+        }
+      }
+      ion-icon {
+        color: var(--customer-ride-info-icon);
+        padding: 0.5rem;
+        // margin-top: 0.25rem;
+        font-size: 1.25rem;
+      }
+      display: flex;
+    }
+
+    .customer-img-details {
+      display: inline-block;
+      img {
+        position: relative;
+        top: -45px;
+
+        border: 3px solid #fff;
+        border-radius: 50%;
+        box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.15);
+      }
+      text-align: center;
+
+      p {
+        position: relative;
+        margin-top: -45px;
+        font: {
+          size: 0.95rem;
+          weight: 600;
+        }
+      }
+    }
+
+    .customer-category {
+      ion-col.customer-ride-price {
+        display: block;
+        sup {
+          position: relative;
+          top: -0.25rem;
+          font-size: 1rem;
+        }
+      }
+      p {
+        margin-top: 0.65rem;
+        font: {
+          size: 0.75rem;
+          weight: 500;
+        }
+      }
+      span {
+        margin-left: 0rem !important;
+        font: {
+          size: 1.5rem !important;
+          weight: 700 !important;
+        }
+        color: var(--ion-color-success);
+      }
+    }
+  }
+
+  .customer-ride-instructions {
+    .customer-ride-call {
+      text-align: center;
+      ion-button {
+        transform: rotateZ(260deg);
+      }
+    }
+    padding: 1.5em;
+    background-color: var(--customer-ride-instructions-bg);
+    span {
+      font: {
+        size: 0.95rem;
+        weight: 500;
+      }
+    }
+    p {
+      padding: 0.5em 0;
+      font: {
+        size: 0.8rem;
+        weight: 400;
+      }
+      color: var(--customer-ride-instructions-p);
+    }
+    ion-button {
+      width: 45px;
+      height: 45px;
+
+      --padding-start: 0;
+      --padding-end: 0;
+      --border-radius: 50%;
+      --border-color: var(--customer-ride-instructions-button-border);
+    }
+
+    ion-icon {
+      color: var(--customer-ride-instructions-button-icon);
+      font-size: 1.25rem;
+    }
+  }
+
+  ion-button.accept-ride-btn {
+    text-transform: none;
+    --border-radius: 0 0 0.65rem 0.65rem;
+    margin-inline: 0;
+    letter-spacing: 0;
+    margin: 0;
+  }
+}
