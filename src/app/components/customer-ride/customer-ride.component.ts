@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { AppConstants } from 'src/constants/app.constants';
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-customer-ride',
@@ -25,7 +27,7 @@ export class CustomerRideComponent implements OnInit {
   acceptRideBtnTitle: string =
     AppConstants.CONSTANTS.PAGES.CUSTOMER_RIDE_PAGE.ACCEPT_RIDE;
 
-  constructor() {}
+  constructor(private toastController: ToastController) {}
 
   ngOnInit() {
     if (this.idx > 0) {
@@ -38,4 +40,18 @@ export class CustomerRideComponent implements OnInit {
       ele.classList.add('hide');
     }
   }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Your settings have been saved.',
+      duration: 2500,
+    });
+    toast.present();
+  }
+
+  printCurrentPosition = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+
+    console.log('Current position:', coordinates);
+  };
 }

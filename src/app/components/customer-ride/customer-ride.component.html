@@ -13,7 +13,14 @@
         </ion-col>
         <ion-col size-md="4" class="customer-img-details">
           <div class="ion-text-center">
-            <img [src]="item.imgURL" alt="Ryan" />
+            <ion-avatar mode="md">
+              <img [src]="item.imgURL" [alt]="item.name" />
+              <ion-chip mode="md">
+                <ion-label>5.0</ion-label>
+                <ion-icon name="star"></ion-icon>
+              </ion-chip>
+            </ion-avatar>
+
             <p>{{ item.name }}</p>
           </div>
         </ion-col>
@@ -52,7 +59,7 @@
           <p>{{ item.instructions }}</p>
         </ion-col>
         <ion-col size="4" class="customer-ride-call">
-          <ion-button shape="round" fill="outline">
+          <ion-button shape="round" fill="outline" (click)="printCurrentPosition()">
             <ion-icon name="call" slot="icon-only"></ion-icon>
           </ion-button>
         </ion-col>
@@ -62,6 +69,7 @@
         expand="block"
         size="large"
         color="success"
+        (click)="presentToast()"
         >{{ acceptRideBtnTitle }}</ion-button
       >
     </div>
